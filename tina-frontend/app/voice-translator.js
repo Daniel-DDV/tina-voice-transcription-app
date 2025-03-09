@@ -155,16 +155,30 @@ export const VoiceTranslator = () => {
 
       {/* Info Panel for Transcription & Summary */}
       {transcription && summary && (
-        <div className="mt-6 p-4 bg-blue-100 rounded-lg shadow-md w-full max-w-md">
-          <h2 className="text-xl font-semibold text-blue-700">Jouw transcriptie samengevat:</h2>
-          <section className="prose border-l-4 border-gray-300 pl-4 italic">
-            <ReactMarkdown>{summary}</ReactMarkdown>
-          </section>
+        <div className="mt-6 w-full max-w-md">
+          {/* Summary Card */}
+          <div className="mb-4 bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="bg-blue-600 px-4 py-3">
+              <h2 className="text-lg font-semibold text-white">Samenvatting</h2>
+            </div>
+            <div className="p-4">
+              <div className="prose prose-sm max-h-[200px] overflow-y-auto">
+                <ReactMarkdown>{summary}</ReactMarkdown>
+              </div>
+            </div>
+          </div>
 
-          <h2 className="text-xl font-semibold text-blue-700">Jouw transcriptie:</h2>
-          <section className="prose">
-            <ReactMarkdown>{transcription}</ReactMarkdown>
-          </section>
+          {/* Full Transcription Card */}
+          <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="bg-gray-700 px-4 py-3">
+              <h2 className="text-lg font-semibold text-white">Volledige transcriptie</h2>
+            </div>
+            <div className="p-4">
+              <div className="prose prose-sm max-h-[300px] overflow-y-auto">
+                <ReactMarkdown>{transcription}</ReactMarkdown>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
@@ -189,7 +203,7 @@ export const VoiceTranslator = () => {
                     <section className="prose">
                         <ReactMarkdown>{`"${item.transcription_summary}"`}</ReactMarkdown>
                     </section>
-                    <p className="font-medium">Transcriptie:</p>
+                    <p className="font-medium">Volledige transcriptie:</p>
                     <section className="prose">
                         <ReactMarkdown>{`"${item.transcription_response}"`}</ReactMarkdown>
                     </section>
